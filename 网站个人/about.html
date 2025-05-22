@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 郝大鑫个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 关于页面特定样式 */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(255, 107, 107, 0.7), rgba(78, 205, 196, 0.7)), url('images/about-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            padding: 0 20px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            gap: 50px;
+        }
+
+        .profile-image {
+            flex: 1;
+            position: relative;
+            min-width: 300px;
+        }
+
+        .profile-pic {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-deco {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            bottom: -20px;
+            left: -20px;
+            z-index: -1;
+        }
+
+        .profile-details {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .profile-intro {
+            margin-bottom: 30px;
+        }
+
+        .profile-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .profile-intro h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .profile-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-text);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .info-text h3 {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .info-text p {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .funfacts {
+            background-color: var(--light-gray);
+            padding: 80px 20px;
+        }
+
+        .funfacts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .funfacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .funfact-item {
+            background-color: var(--light-text);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .funfact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .funfact-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .funfact-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .funfact-detail {
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .history-section {
+            padding: 80px 20px;
+        }
+
+        .history-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .history-list {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .history-list::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .history-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .history-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .history-content {
+            width: calc(50% - 50px);
+            padding: 25px;
+            background-color: var(--light-text);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .history-item:nth-child(odd) .history-content {
+            float: left;
+        }
+
+        .history-item:nth-child(even) .history-content {
+            float: right;
+        }
+
+        .history-content:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-date {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            font-weight: 600;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .history-item:nth-child(odd) .history-date {
+            right: -130px;
+        }
+
+        .history-item:nth-child(even) .history-date {
+            left: -130px;
+        }
+
+        .history-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 4px solid var(--primary-color);
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .history-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .history-place {
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .history-text {
+            line-height: 1.7;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+            
+            .history-list::before {
+                left: 20px;
+                transform: none;
+            }
+            
+            .history-content {
+                width: calc(100% - 60px);
+                float: right !important;
+                margin-left: 60px;
+            }
+            
+            .history-dot {
+                left: 20px;
+                transform: none;
+            }
+            
+            .history-item:nth-child(odd) .history-date,
+            .history-item:nth-child(even) .history-date {
+                left: 20px;
+                top: -40px;
+                right: auto;
+                width: auto;
+            }
+            
+            .funfacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo" class="logo">
+                <span class="logo-text">郝大鑫</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html" class="active">关于我</a></li>
+                <li><a href="funny.html">搞笑日常</a></li>
+                <li><a href="skills.html">特长展示</a></li>
+                <li><a href="contact.html" class="contact-btn">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 关于我英雄区 -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>关于我</h1>
+            <p>认识郝大鑫，一个有点搞怪，有点靠谱的26岁年轻人</p>
+        </div>
+    </section>
+
+    <!-- 个人简介 -->
+    <section class="profile-container">
+        <div class="profile-image">
+            <img src="images/about-me.jpg" alt="郝大鑫照片" class="profile-pic">
+            <div class="profile-deco"></div>
+        </div>
+        <div class="profile-details">
+            <div class="profile-intro">
+                <h2>您好，我是郝大鑫</h2>
+                <p>26岁，来自吉林长春，一个热爱生活、喜欢搞怪但又认真负责的人。我相信生活需要平衡，工作时一丝不苟，休闲时尽情释放。</p>
+                <p>我从小就喜欢音乐和游戏，喜欢交朋友，也享受独处的时光。大学学习了计算机科学，毕业后在一家科技公司做开发工作，但我的兴趣远不止于此。</p>
+                <p>这个网站是我的个人空间，记录我的生活点滴、搞笑瞬间和创意想法。希望通过这个窗口，让更多人了解真实的我，也期待与志同道合的朋友们交流。</p>
+            </div>
+            <div class="profile-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>年龄</h3>
+                        <p>26岁</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>所在地</h3>
+                        <p>吉林长春</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>学历</h3>
+                        <p>本科</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>职业</h3>
+                        <p>软件开发工程师</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>爱好</h3>
+                        <p>音乐、游戏、美食、旅行</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>性格</h3>
+                        <p>外向、幽默、靠谱</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 有趣的事实 -->
+    <section class="funfacts">
+        <div class="funfacts-container">
+            <div class="section-header">
+                <h2>关于我的有趣小事实</h2>
+                <p>了解一些你可能不知道的小细节</p>
+            </div>
+            <div class="funfacts-grid">
+                <div class="funfact-item">
+                    <div class="funfact-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="funfact-title">美食探险家</h3>
+                    <p class="funfact-detail">我的人生目标是尝遍全国各地的特色小吃，目前已打卡187种，最喜欢的是重庆的麻辣火锅。</p>
+                </div>
+                <div class="funfact-item">
+                    <div class="funfact-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="funfact-title">游戏达人</h3>
+                    <p class="funfact-detail">从小学开始玩游戏，擅长各种类型，但特别喜欢开放世界和策略类游戏。曾经在校园电竞比赛中获得过第二名。</p>
+                </div>
+                <div class="funfact-item">
+                    <div class="funfact-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="funfact-title">音乐收藏家</h3>
+                    <p class="funfact-detail">我的播放列表包含超过5000首歌曲，跨越古典、摇滚、嘻哈、电子等多种风格。会弹吉他，但水平一般。</p>
+                </div>
+                <div class="funfact-item">
+                    <div class="funfact-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="funfact-title">旅行故事</h3>
+                    <p class="funfact-detail">曾经一个人背包徒步三个省份，最难忘的经历是在山顶上看日出，然后迷路下山花了整整一天。</p>
+                </div>
+                <div class="funfact-item">
+                    <div class="funfact-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="funfact-title">阅读习惯</h3>
+                    <p class="funfact-detail">睡前必读30分钟，偏爱科幻和心理类书籍。最喜欢的作家是刘慈欣，《三体》读了三遍。</p>
+                </div>
+                <div class="funfact-item">
+                    <div class="funfact-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3 class="funfact-title">咖啡迷</h3>
+                    <p class="funfact-detail">没有咖啡就无法开始一天，家里有7种不同的冲泡工具，最喜欢用手冲的方式，享受那个过程。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人经历 -->
+    <section class="history-section">
+        <div class="history-container">
+            <div class="section-header">
+                <h2>我的成长历程</h2>
+                <p>每段经历都是我人生的重要组成部分</p>
+            </div>
+            <div class="history-list">
+                <div class="history-item clearfix">
+                    <div class="history-content">
+                        <h3 class="history-title">大学毕业</h3>
+                        <span class="history-place">吉林大学计算机科学专业</span>
+                        <p class="history-text">完成学业并获得计算机科学学士学位，参与了多个校园项目，在校园编程比赛中获得过奖项。大学期间，我不仅学到了专业知识，还培养了解决问题的能力和团队协作精神。</p>
+                    </div>
+                    <div class="history-date">2019年</div>
+                    <div class="history-dot"></div>
+                </div>
+                <div class="history-item clearfix">
+                    <div class="history-content">
+                        <h3 class="history-title">第一份工作</h3>
+                        <span class="history-place">长春科技有限公司</span>
+                        <p class="history-text">作为初级开发工程师加入团队，参与了多个Web应用程序的开发。这段经历让我快速成长，掌握了实际项目开发的技能，也学会了如何在压力下保持效率和质量。</p>
+                    </div>
+                    <div class="history-date">2019-2021年</div>
+                    <div class="history-dot"></div>
+                </div>
+                <div class="history-item clearfix">
+                    <div class="history-content">
+                        <h3 class="history-title">自由开发者</h3>
+                        <span class="history-place">远程工作</span>
+                        <p class="history-text">决定尝试自由职业生涯，接手了多个不同类型的项目。这段经历让我接触到各种各样的技术和客户需求，挑战自己的舒适区，同时也享受了灵活工作的乐趣。</p>
+                    </div>
+                    <div class="history-date">2021-2022年</div>
+                    <div class="history-dot"></div>
+                </div>
+                <div class="history-item clearfix">
+                    <div class="history-content">
+                        <h3 class="history-title">现在的工作</h3>
+                        <span class="history-place">互联网科技公司</span>
+                        <p class="history-text">担任全栈开发工程师，负责公司核心产品的开发和维护。工作中我不仅提高了技术能力，还学习了产品思维和用户体验设计，同时与优秀的团队成员一起成长。</p>
+                    </div>
+                    <div class="history-date">2022年至今</div>
+                    <div class="history-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Logo">
+                <p>有趣的灵魂终究会相遇</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>网站导航</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="funny.html">搞笑日常</a></li>
+                        <li><a href="skills.html">特长展示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>我的爱好</h4>
+                    <ul>
+                        <li><a href="skills.html#music">音乐</a></li>
+                        <li><a href="skills.html#games">游戏</a></li>
+                        <li><a href="skills.html#food">美食</a></li>
+                        <li><a href="skills.html#travel">旅行</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> a13927467@outlook.com</li>
+                        <li><i class="fas fa-phone"></i> +86 18584312395</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 吉林长春</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023-2025 郝大鑫的快乐星球. 随便转载.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加滑动效果
+            const profileItems = document.querySelectorAll('.info-item, .funfact-item, .history-item');
+            
+            if ('IntersectionObserver' in window) {
+                const fadeInObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = entry.target.classList.contains('info-item') 
+                                ? 'translateY(0)' 
+                                : entry.target.classList.contains('funfact-item')
+                                ? 'translateY(0)'
+                                : 'scale(1)';
+                            fadeInObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                profileItems.forEach(el => {
+                    if (el.classList.contains('info-item')) {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(20px)';
+                    } else if (el.classList.contains('funfact-item')) {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(30px)';
+                    } else {
+                        el.style.opacity = '0';
+                        el.style.transform = 'scale(0.9)';
+                    }
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    fadeInObserver.observe(el);
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
