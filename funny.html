@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搞笑日常 - 郝大鑫个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 搞笑日常页面特定样式 */
+        .funny-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(255, 107, 107, 0.6), rgba(78, 205, 196, 0.6)), url('images/funny-hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            padding: 0 20px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .funny-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .funny-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .emoji-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 24px;
+            animation: emojiDrop 3s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes emojiDrop {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .funny-section {
+            padding: 80px 20px;
+        }
+
+        .funny-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .funny-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+            margin-top: 50px;
+        }
+
+        .funny-card {
+            background-color: var(--light-text);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .funny-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .funny-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .funny-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .funny-card-content {
+            padding: 20px;
+        }
+
+        .funny-card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .funny-card-content p {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .funny-card-content .date {
+            display: block;
+            color: var(--secondary-color);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        .funny-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .jokes-section {
+            background-color: var(--light-gray);
+            padding: 80px 20px;
+        }
+
+        .joke-card {
+            background-color: var(--light-text);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .joke-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .joke-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .joke-card p {
+            font-style: italic;
+            color: var(--text-color);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .joke-card .punchline {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .joke-reaction {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .joke-reaction button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .joke-reaction button:hover {
+            transform: scale(1.2);
+        }
+
+        .video-section {
+            padding: 80px 20px;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+            margin-top: 50px;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        .video-info {
+            padding: 15px;
+            background-color: var(--light-text);
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .video-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .funny-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .funny-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo" class="logo">
+                <span class="logo-text">郝大鑫</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="funny.html" class="active">搞笑日常</a></li>
+                <li><a href="skills.html">特长展示</a></li>
+                <li><a href="contact.html" class="contact-btn">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 搞笑日常英雄区 -->
+    <section class="funny-hero">
+        <div class="emoji-rain" id="emoji-rain"></div>
+        <div class="hero-content">
+            <h1>搞笑日常</h1>
+            <p>记录生活中的那些欢乐时刻，分享快乐，传递正能量（也有负能量，看心情）</p>
+        </div>
+    </section>
+
+    <!-- 搞笑瞬间 -->
+    <section class="funny-section" id="moments">
+        <div class="funny-content">
+            <div class="section-header">
+                <h2>搞笑瞬间</h2>
+                <p>生活处处皆是笑点，只要你敢拍</p>
+            </div>
+            <div class="funny-grid">
+                <div class="funny-card" id="dance">
+                    <div class="funny-tag">尬舞</div>
+                    <img src="images/funny-1.jpg" alt="尬舞现场">
+                    <div class="funny-card-content">
+                        <h3>尬舞现场</h3>
+                        <p>那一次聚会，我以为自己跳得很帅，结果朋友们都在笑，现在看看照片，我也笑了...</p>
+                        <span class="date">2023年3月15日</span>
+                    </div>
+                </div>
+                <div class="funny-card" id="cooking">
+                    <div class="funny-tag">厨艺</div>
+                    <img src="images/funny-2.jpg" alt="厨房灾难">
+                    <div class="funny-card-content">
+                        <h3>厨房灾难</h3>
+                        <p>跟着视频学做菜，视频说十分钟就能搞定，结果我搞了一个小时还是一团糟...</p>
+                        <span class="date">2023年5月22日</span>
+                    </div>
+                </div>
+                <div class="funny-card" id="cosplay">
+                    <div class="funny-tag">Cosplay</div>
+                    <img src="images/funny-3.jpg" alt="cos现场">
+                    <div class="funny-card-content">
+                        <h3>cos现场</h3>
+                        <p>第一次尝试cosplay，选了个简单的角色，结果看起来像从垃圾堆里捡来的道具...</p>
+                        <span class="date">2023年7月10日</span>
+                    </div>
+                </div>
+                <div class="funny-card">
+                    <div class="funny-tag">社死</div>
+                    <img src="images/funny-4.jpg" alt="社死瞬间">
+                    <div class="funny-card-content">
+                        <h3>社死现场</h3>
+                        <p>在商场电梯上手舞足蹈，忽然发现旁边全是人在看我，我装作接电话的样子急忙下了电梯...</p>
+                        <span class="date">2023年8月5日</span>
+                    </div>
+                </div>
+                <div class="funny-card">
+                    <div class="funny-tag">表情包</div>
+                    <img src="images/funny-5.jpg" alt="表情包素材">
+                    <div class="funny-card-content">
+                        <h3>表情包素材</h3>
+                        <p>朋友偷拍的我吃东西的样子，现在成了群里的专属表情包，已经被玩坏了...</p>
+                        <span class="date">2023年9月18日</span>
+                    </div>
+                </div>
+                <div class="funny-card">
+                    <div class="funny-tag">恶搞</div>
+                    <img src="images/funny-6.jpg" alt="恶搞照片">
+                    <div class="funny-card-content">
+                        <h3>恶搞大片</h3>
+                        <p>用手机和一些家里的道具模仿电影海报，结果出乎意料的像那么回事...</p>
+                        <span class="date">2023年10月31日</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 郝式冷笑话 -->
+    <section class="jokes-section" id="jokes">
+        <div class="funny-content">
+            <div class="section-header">
+                <h2>郝氏冷笑话</h2>
+                <p>听完可能会让你怀疑人生</p>
+            </div>
+            <div class="joke-container">
+                <div class="joke-card">
+                    <h3>为什么程序员总是分不清万圣节和圣诞节？</h3>
+                    <p>因为 Oct 31 == Dec 25</p>
+                    <small>(程序员笑话: 八进制的31等于十进制的25)</small>
+                    <div class="joke-reaction">
+                        <button class="laugh-btn"><i class="fas fa-laugh-beam"></i></button>
+                        <button class="groan-btn"><i class="fas fa-dizzy"></i></button>
+                    </div>
+                </div>
+                <div class="joke-card">
+                    <h3>昨天我去医院测视力</h3>
+                    <p>医生给我看了一串字母：C V B N M</p>
+                    <p class="punchline">我说：这不是键盘下面一排嘛？</p>
+                    <div class="joke-reaction">
+                        <button class="laugh-btn"><i class="fas fa-laugh-beam"></i></button>
+                        <button class="groan-btn"><i class="fas fa-dizzy"></i></button>
+                    </div>
+                </div>
+                <div class="joke-card">
+                    <h3>如何杀死一个循环？</h3>
+                    <p class="punchline">用一个 break 语句！</p>
+                    <div class="joke-reaction">
+                        <button class="laugh-btn"><i class="fas fa-laugh-beam"></i></button>
+                        <button class="groan-btn"><i class="fas fa-dizzy"></i></button>
+                    </div>
+                </div>
+                <div class="joke-card">
+                    <h3>有一天我问朋友，为什么你的代码里有那么多BUG？</h3>
+                    <p class="punchline">他说："我的代码没有BUG，那是特性！"</p>
+                    <div class="joke-reaction">
+                        <button class="laugh-btn"><i class="fas fa-laugh-beam"></i></button>
+                        <button class="groan-btn"><i class="fas fa-dizzy"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 搞笑视频 -->
+    <section class="video-section">
+        <div class="funny-content">
+            <div class="section-header">
+                <h2>搞笑视频</h2>
+                <p>记录下的爆笑瞬间</p>
+            </div>
+            <div class="video-container">
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <img src="images/video-thumb-1.jpg" alt="视频缩略图" style="width:100%; height:250px; object-fit:cover;">
+                        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:80px; color:white; opacity:0.8;">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>当我第一次玩VR游戏</h3>
+                        <p>差点把家里的电视打碎，笑死了</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <img src="images/video-thumb-2.jpg" alt="视频缩略图" style="width:100%; height:250px; object-fit:cover;">
+                        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:80px; color:white; opacity:0.8;">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>尝试用英语点餐</h3>
+                        <p>结果店员是个留学生，英语比我还好...</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <img src="images/video-thumb-3.jpg" alt="视频缩略图" style="width:100%; height:250px; object-fit:cover;">
+                        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:80px; color:white; opacity:0.8;">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>给朋友恶作剧</h3>
+                        <p>差点被打，但是太值了！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Logo">
+                <p>有趣的灵魂终究会相遇</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>网站导航</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="funny.html">搞笑日常</a></li>
+                        <li><a href="skills.html">特长展示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>我的爱好</h4>
+                    <ul>
+                        <li><a href="skills.html#music">音乐</a></li>
+                        <li><a href="skills.html#games">游戏</a></li>
+                        <li><a href="skills.html#food">美食</a></li>
+                        <li><a href="skills.html#travel">旅行</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> a13927467@outlook.com</li>
+                        <li><i class="fas fa-phone"></i> +86 18584312395</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 吉林长春</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023-2025 郝大鑫的快乐星球. 随便转载.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // 生成表情雨
+        document.addEventListener('DOMContentLoaded', function() {
+            const emojis = ['😂', '🤣', '😆', '😎', '🤩', '🤪', '😜', '😝', '🤭', '😏'];
+            const emojiRain = document.getElementById('emoji-rain');
+            
+            // 创建表情符号
+            function createEmoji() {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                // 随机位置和动画持续时间
+                const left = Math.random() * 100;
+                const duration = Math.random() * 3 + 3;
+                
+                emoji.style.left = `${left}%`;
+                emoji.style.animationDuration = `${duration}s`;
+                
+                emojiRain.appendChild(emoji);
+                
+                // 移除元素
+                setTimeout(() => {
+                    emoji.remove();
+                }, duration * 1000);
+            }
+            
+            // 每0.3秒创建一个表情
+            setInterval(createEmoji, 300);
+            
+            // 笑话反馈按钮
+            const laughButtons = document.querySelectorAll('.laugh-btn');
+            const groanButtons = document.querySelectorAll('.groan-btn');
+            
+            laughButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.innerHTML = '<i class="fas fa-check"></i> 好笑';
+                    const groanBtn = this.parentElement.querySelector('.groan-btn');
+                    groanBtn.innerHTML = '<i class="fas fa-dizzy"></i>';
+                });
+            });
+            
+            groanButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.innerHTML = '<i class="fas fa-check"></i> 尴尬';
+                    const laughBtn = this.parentElement.querySelector('.laugh-btn');
+                    laughBtn.innerHTML = '<i class="fas fa-laugh-beam"></i>';
+                });
+            });
+            
+            // 视频播放
+            const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+            
+            videoPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    alert('视频功能正在开发中，敬请期待！');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

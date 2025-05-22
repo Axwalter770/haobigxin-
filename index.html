@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郝大鑫个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo" class="logo">
+                <span class="logo-text">郝大鑫</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="funny.html">搞笑日常</a></li>
+                <li><a href="skills.html">特长展示</a></li>
+                <li><a href="contact.html" class="contact-btn">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主视频展示区 -->
+    <section class="hero-video">
+        <video autoplay muted loop id="hero-video" playsinline>
+            <source src="assets/logo.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+        <div class="overlay">
+            <h1>我是郝大鑫，<span class="bounce-text">不一样的烟火</span></h1>
+            <p>有点搞怪，有点认真，但绝对有趣</p>
+            <div class="joke-container" id="joke-box">
+                <p class="random-joke">为什么程序员不能修电脑？因为他只会让电脑帮他修Bug！</p>
+                <button id="new-joke" class="joke-btn">再来一条</button>
+            </div>
+            <div class="cta-buttons">
+                <a href="funny.html" class="cta-btn primary">搞笑日常</a>
+                <a href="contact.html" class="cta-btn secondary">找我聊天</a>
+            </div>
+            <div class="funny-element">
+                <img src="images/funny-emoji.png" alt="搞怪表情" class="rotate-emoji">
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色展示区 -->
+    <section class="services">
+        <div class="section-header">
+            <h2>我的特色</h2>
+            <p>每个人都有闪光点，这些是我的</p>
+        </div>
+        <div class="service-cards">
+            <div class="service-card funny-card">
+                <i class="fas fa-laugh-squint"></i>
+                <h3>幽默搞笑</h3>
+                <p>能让人捧腹大笑的段子手，朋友圈的开心果</p>
+                <a href="funny.html#jokes" class="learn-more">笑一笑 <i class="fas fa-arrow-right"></i></a>
+                <div class="card-emoji">🤣</div>
+            </div>
+            <div class="service-card funny-card">
+                <i class="fas fa-music"></i>
+                <h3>音乐才华</h3>
+                <p>业余音乐创作，偶尔唱两句跑调的歌</p>
+                <a href="skills.html#music" class="learn-more">听一听 <i class="fas fa-arrow-right"></i></a>
+                <div class="card-emoji">🎵</div>
+            </div>
+            <div class="service-card funny-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>游戏达人</h3>
+                <p>各种游戏的半吊子高手，偶尔也会被新手虐</p>
+                <a href="skills.html#games" class="learn-more">玩一玩 <i class="fas fa-arrow-right"></i></a>
+                <div class="card-emoji">🎮</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 搞怪日常 -->
+    <section class="showcase">
+        <div class="section-header dark">
+            <h2>搞笑日常</h2>
+            <p>记录生活中的那些欢乐时刻</p>
+        </div>
+        <div class="floating-meme" id="random-meme">
+            <img src="images/meme1.jpg" alt="随机梗图">
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/funny-1.jpg" alt="搞笑照片1">
+                <div class="portfolio-hover">
+                    <h3>尬舞现场</h3>
+                    <p>当我觉得自己舞姿很帅的时候</p>
+                    <a href="funny.html#dance">查看详情</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/funny-2.jpg" alt="搞笑照片2">
+                <div class="portfolio-hover">
+                    <h3>厨房灾难</h3>
+                    <p>当我试图做一道"简单"的菜时</p>
+                    <a href="funny.html#cooking">查看详情</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/funny-3.jpg" alt="搞笑照片3">
+                <div class="portfolio-hover">
+                    <h3>cos现场</h3>
+                    <p>当我尝试扮演动漫角色</p>
+                    <a href="funny.html#cosplay">查看详情</a>
+                </div>
+            </div>
+        </div>
+        <div class="view-all">
+            <a href="funny.html" class="view-all-btn shake-btn">查看更多搞笑瞬间</a>
+        </div>
+    </section>
+
+    <!-- 朋友评价 -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>朋友怎么说</h2>
+            <p>听听我朋友们的"真心话"</p>
+        </div>
+        <div class="testimonial-slider" id="testimonial-slider">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"郝大鑫这人就是个活宝，整天没个正形，但关键时刻却意外的靠谱。论搞笑，我们宿舍就服他！"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="images/friend-1.jpg" alt="朋友头像">
+                    <div>
+                        <h4>老张</h4>
+                        <p>多年死党 <span class="friend-emoji">👨‍🤝‍👨</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"认识郝大鑫后我的笑点变得越来越低，每次和他聊天都像是在看一场脱口秀。不过他认真起来做事还是很靠谱的。"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="images/friend-2.jpg" alt="朋友头像">
+                    <div>
+                        <h4>小李</h4>
+                        <p>大学同学 <span class="friend-emoji">🧑‍🎓</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"郝大鑫这个人...怎么说呢，能把最普通的事情讲得天花乱坠，能把最严肃的场合变得如此欢乐。不过他唱歌真的很难听！"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="images/friend-3.jpg" alt="朋友头像">
+                    <div>
+                        <h4>小王</h4>
+                        <p>发小 <span class="friend-emoji">👶</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- 联系部分 -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>找我玩</h2>
+                <p>有事没事都可以找我，只要不是借钱</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>a13927467@outlook.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+86 18584312395</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>吉林长春你的心里</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-weixin bounce-icon"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-qq bounce-icon"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-weibo bounce-icon"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-bilibili bounce-icon"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="你叫啥" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="你的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="说啥事" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="随便说点什么" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">发射！</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Logo">
+                <p>有趣的灵魂终究会相遇</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>网站导航</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="funny.html">搞笑日常</a></li>
+                        <li><a href="skills.html">特长展示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>我的爱好</h4>
+                    <ul>
+                        <li><a href="skills.html#music">音乐</a></li>
+                        <li><a href="skills.html#games">游戏</a></li>
+                        <li><a href="skills.html#food">美食</a></li>
+                        <li><a href="skills.html#travel">旅行</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> a13927467@outlook.com</li>
+                        <li><i class="fas fa-phone"></i> +86 18584312395</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 吉林长春</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023-2025 郝大鑫的快乐星球. 随便转载.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
